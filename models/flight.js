@@ -27,3 +27,6 @@ const flightSchema = new Schema({
         }
     }
 });
+
+// compiles the schema into a model and exports it
+module.exports = mongoose.model('Flight', flightSchema)
