@@ -11,21 +11,21 @@
     </label><br><br>
     <label>Airport:
         <select name="airport">
-            <option value="YYZ">YYZ</option>
             <option value="DEN">DEN</option>
             <option value="JFK">JFK</option>
             <option value="LGA">LGA</option>
             <option value="PHL">PHL</option>
+            <option value="YYZ" selected>YYZ</option>
         </select>
     </label><br><br>
     <label>Flight Number:
         <input type="number" name="flightNo">
     </label><br><br>
     <label>Departure Date:
-        <input type="datetime-local" name="departs">
+        <input type="datetime-local" name="departs" value="<%= departsDate %>">
     </label><br><br>
     <button type="submit">Add Flight</button>
 </form>
-<p><%= errorMsg %></p>
+<p><%= errorMsg %></p> 
 
 <%- include('../partials/footer') %>
