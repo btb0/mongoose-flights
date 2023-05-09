@@ -7,7 +7,8 @@
                 <th>Airline</th>
                 <th>Airport</th>
                 <th>Flight #</th>
-                <th>Departs</th>
+                <th>Departure Date</th>
+                <th>Departure Time</th>
             </tr>
         </thead>
         <tbody>
@@ -16,7 +17,9 @@
                 <td><%= f.airline %></td>
                 <td><%= f.airport %></td>
                 <td><%= f.flightNo %></td>
+                <td><%= f.departs.toDateString() %></td>
                 <td><%= f.departs.toLocaleString('en-US', { timeZone: 'EST', hour: '2-digit', minute: '2-digit'}) %></td>
+                <td><a href="/flights/<%= f._id %>">Details</a></td>
             </tr>
             <% }) %>
         </tbody>

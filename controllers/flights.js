@@ -4,7 +4,8 @@ var Flight = require('../models/flight');
 module.exports = {
     index,
     new: newFlight,
-    create
+    create,
+    show
 }
 
 async function index (req, res) {
@@ -14,7 +15,7 @@ async function index (req, res) {
     })
 }
 
-function newFlight(req,res) {
+function newFlight(req, res) {
     const newFlight = new Flight();
     // Obtain the default date
     const dt = newFlight.departs;
@@ -36,4 +37,9 @@ async function create(req, res) {
         console.log(err)
         res.render('flights/new', { errorMsg: err.message });
     }
+}
+
+async function show(req, res) {
+    const flight = await Flight.findById(req.params.id);
+    res.render('flights/show', { flight })
 }

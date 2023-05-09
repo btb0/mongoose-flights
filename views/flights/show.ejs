@@ -1,0 +1,18 @@
+<%- include('../partials/header') %>
+
+<section id="flight-details">
+<div>Airline: </div>
+<div><%= flight.airline %></div>
+<div>Airport: </div>
+<div><%= flight.airport %></div>
+<div>Flight Number: </div>
+<div><%= flight.flightNo %></div>
+<div>Departure Date: </div>
+<div><%= flight.departs.toDateString() %></div>
+<div>Departure Time: </div>
+<div><%= flight.departs.toLocaleString('en-US', { timeZone: 'EST', hour: '2-digit', minute: '2-digit'}) %></div>
+<div>Destinations: </div>
+<div><%= flight.destinations %></div>
+</section>
+
+<%- include('../partials/footer') %>
