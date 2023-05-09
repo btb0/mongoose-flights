@@ -1,18 +1,39 @@
 <%- include('../partials/header') %>
 
 <section id="flight-details">
-<div>Airline: </div>
-<div><%= flight.airline %></div>
-<div>Airport: </div>
-<div><%= flight.airport %></div>
-<div>Flight Number: </div>
-<div><%= flight.flightNo %></div>
-<div>Departure Date: </div>
-<div><%= flight.departs.toDateString() %></div>
-<div>Departure Time: </div>
-<div><%= flight.departs.toLocaleString('en-US', { timeZone: 'EST', hour: '2-digit', minute: '2-digit'}) %></div>
-<div>Destinations: </div>
-<div><%= flight.destinations %></div>
+    <div>Airline: </div>
+    <div><%= flight.airline %></div>
+    <div>Airport: </div>
+    <div><%= flight.airport %></div>
+    <div>Flight Number: </div>
+    <div><%= flight.flightNo %></div>
+    <div>Departure Date: </div>
+    <div><%= flight.departs.toDateString() %></div>
+    <div>Departure Time: </div>
+    <div><%= flight.departs.toLocaleString('en-US', { timeZone: 'EST', hour: '2-digit', minute: '2-digit'}) %></div>
+    <div>Destinations: </div>
+    <div><%= flight.destinations %></div>
 </section>
+<br>
+<h2>Add Destinations</h2>
+<form id="add-destinations-form" method="POST" 
+    action="/flights/<%= flight._id %>/destinations">
+    <label>Destination: 
+        <input type="text" name="destination">
+    </label>
+    <label>Airport: 
+        <select name="airport">
+            <option value="DEN">DEN</option>
+            <option value="JFK">JFK</option>
+            <option value="LGA">LGA</option>
+            <option value="PHL">PHL</option>
+            <option value="YYZ" selected>YYZ</option>
+        </select>
+    </label>
+    <label>Arrival Date/Time: 
+        <input type="datetime-local" name="departs">
+    </label>
+    <button type="submit">Add Destination</button>
+</form>
 
 <%- include('../partials/footer') %>
