@@ -1,5 +1,5 @@
 // Flight Model
-const Flight = require('../models/flight')
+const { Flight } = require('../models/flight');
 
 module.exports = {
     create

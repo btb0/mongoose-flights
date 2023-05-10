@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 // shortcut to mongoose.Schema class
 const Schema = mongoose.Schema;
 
+const Airports = ['DEN', 'JFK', 'LGA', 'PHL', 'YYZ'];
+
 const destinationSchema = new Schema({
     airport: {
         type: String,
@@ -37,5 +39,7 @@ const flightSchema = new Schema({
     destinations: [destinationSchema]
 });
 
+const Flight = mongoose.model('Flight', flightSchema)
+
 // compiles the schema into a model and exports it
-module.exports = mongoose.model('Flight', flightSchema)
+module.exports = { Flight, Airports }

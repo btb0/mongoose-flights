@@ -1,5 +1,5 @@
 // Flight Model
-var Flight = require('../models/flight');
+const { Flight, Airports } = require('../models/flight');
 
 module.exports = {
     index,
@@ -9,6 +9,7 @@ module.exports = {
 }
 
 async function index (req, res) {
+                                        // Sorts flights in ascending order
     const flights = await Flight.find({}).sort({ departs: 1 }).exec();
     res.render('flights/index', {
         flights: flights
@@ -41,5 +42,9 @@ async function create(req, res) {
 
 async function show(req, res) {
     const flight = await Flight.findById(req.params.id);
-    res.render('flights/show', { flight })
+    const destinationAirports = flight.destinations.map((destination) => destination.airport);
+    const filteredAirports = Airports.filter((airport) => !destinationAirports.includes(airport));
+    // sorts destinations by arrival
+    flight.destinations.sort((a, b) => a.arrival - b.arrival);
+    res.render('flights/show', { flight, Airports: filteredAirports })
 }
