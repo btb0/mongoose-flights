@@ -7,13 +7,13 @@ const destinationSchema = new Schema({
         type: String,
         enum: ['DEN', 'JFK', 'LGA', 'PHL', 'YYZ']
     },
-    Arrival: Date
+    arrival: Date
 });
 
 const flightSchema = new Schema({
     airline: { 
         type: String,
-        enum: ['Air Canada', 'Delta', 'United']
+        enum: ['Air Canada', 'Delta', 'Spirit']
     },
     airport: {
         type: String,

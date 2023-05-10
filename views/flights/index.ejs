@@ -4,11 +4,10 @@
     <table>
         <thead>
             <tr>
-                <th>Airline</th>
-                <th>Airport</th>
-                <th>Flight #</th>
-                <th>Departure Date</th>
-                <th>Departure Time</th>
+                <th>Airline: </th>
+                <th>Airport: </th>
+                <th>Flight # </th>
+                <th>Departs: </th>
             </tr>
         </thead>
         <tbody>
@@ -17,8 +16,7 @@
                 <td><%= f.airline %></td>
                 <td><%= f.airport %></td>
                 <td><%= f.flightNo %></td>
-                <td><%= f.departs.toLocaleDateString() %></td>
-                <td><%= f.departs.toLocaleString('en-US', { timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit'}) %></td>
+                <td><%= f.departs.toLocaleDateString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }) %></td>
                 <td><a href="/flights/<%= f._id %>">Details</a></td>
             </tr>
             <% }) %>

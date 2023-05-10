@@ -10,11 +10,10 @@
     <div>Departure Date: </div>
     <div><%= flight.departs.toDateString() %></div>
     <div>Departure Time: </div>
-    <div><%= flight.departs.toLocaleString('en-US', { timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit'}) %></div>
-    <div>Destinations: </div>
+    <div><%= flight.departs.toLocaleString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true}) %></div>
+    <div id="destinations">Destinations: </div>
     <% flight.destinations.forEach(function(d) { %>
         <div><%= d.airport %></div>
-        <div><%= d.arrival %></div>
         <div><%= d.arrival %></div>
     <% }) %>
 </section>
