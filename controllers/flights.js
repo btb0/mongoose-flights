@@ -1,5 +1,6 @@
-// Flight Model
+// Flight Model / Airports Array
 const { Flight, Airports } = require('../models/flight');
+const Ticket = require('../models/ticket');
 
 module.exports = {
     index,
@@ -40,11 +41,28 @@ async function create(req, res) {
     }
 }
 
-async function show(req, res) {
-    const flight = await Flight.findById(req.params.id);
-    const destinationAirports = flight.destinations.map((destination) => destination.airport);
-    const filteredAirports = Airports.filter((airport) => !destinationAirports.includes(airport));
+// async function show(req, res) {
+//     const flight = await Flight.findById(req.params.id);
+//     const destinationAirports = flight.destinations.map((destination) => destination.airport);
+//     const filteredAirports = Airports.filter((airport) => !destinationAirports.includes(airport));
     // sorts destinations by arrival
-    flight.destinations.sort((a, b) => a.arrival - b.arrival);
-    res.render('flights/show', { flight, Airports: filteredAirports })
+    // flight.destinations.sort((a, b) => a.arrival - b.arrival);
+    // try {
+    //     await Flight.findById(req.params.id, async function(err, flight) {
+    //         await Ticket.find({flight: flight._id}, function(err, tickets) {
+
+    //         });
+    //     });
+    // } catch (err) {
+    // }
+    // res.render('flights/show', { flight, Airports: filteredAirports })
+// }
+
+function show(req, res) {
+    Flight.findById(req.params.id, function(err, flight) {
+        Ticket.find({flight: flight._id}, function(err, tickets) {
+          // Now you can pass both the flight and tickets in the res.render call
+          res.render('flights/show', { flight, tickets });
+        });
+    });
 }

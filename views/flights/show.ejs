@@ -29,9 +29,13 @@
         </select>
     </label>
     <label>Arrival Date/Time: 
-        <input type="datetime-local" name="arrival">
+        <input type="datetime-local" name="arrival" required>
     </label>
     <button type="submit">Add Destination</button>
 </form>
+<br>
+<h2>Tickets</h2>
+<div></div>
+<a href="/flights/<%= flight._id %>/tickets">New Ticket</a>
 
 <%- include('../partials/footer') %>
