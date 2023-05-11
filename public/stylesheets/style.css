@@ -33,10 +33,6 @@ header #mongoose-header-title {
   color: white;
 }
 
-a {
-  color: rgb(11, 153, 255);
-}
-
 /* -======NAV BAR======- */
 
 nav {
@@ -82,36 +78,76 @@ nav > div {
 }
 
 #new-flight-div > form {
-  height: 400px;
+  padding: 30px;
+  height: 450px;
   width: 1005px;
   border-radius: 15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   align-items: center;
+  text-align: right;
   box-shadow: rgba(0, 0, 0, 0.20) 0px 5px 15px;
+}
+
+#new-flight-div > form > * {
+}
+
+.new-flight-label {
+  grid-column-start: 1;
+  margin-right: 45px;
 }
 
 #new-flight-div input, #new-flight-div select {
   height: 35px;
+  width: 250px;
+  margin-left: 0;
 }
 
-#form-top, #form-bottom {
-  font-size: 24px;
-  margin: 65px;
-}
-
-#form-top > *{
-  margin: 75px;
+.new {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  margin: 25px;
+  grid-column-start: 2;
 }
 
 #new-flight-button {
+  border: 1px solid rgb(30, 80, 117);
+  background-color: rgb(30, 80, 117);
+  justify-content: center;
+  color: white;
+  font-size: 16px;
   padding: 10px;
+  width: 150px;
   border-radius: 10px;
-  margin: auto 30px 20px auto;
+}
+
+#button-div {
+  display: flex;
+  justify-content: center;
+  grid-column: span 2;
 }
 
 /* -======ALL FLIGHTS======- */
+
+#details-link {
+  color: Black;
+  font-size: 14px;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 3px;
+  text-decoration: none;
+}
+
+#details-link:hover {
+  color: white;
+  background-color: black;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 3px;
+  text-decoration: none;
+}
 
 #flights-index-container {
   height: fit-content;
@@ -124,7 +160,6 @@ nav > div {
 }
 
 #flights-index-table {
-  /* height: 500px; */
   height: fit-content;
   width: 1000px;
   padding: 45px;
@@ -136,4 +171,8 @@ nav > div {
   border-bottom: 1px solid black;
   padding: 15px;
   padding-top: 0;
+}
+
+#flights-index-table tbody > tr > td {
+  padding: 5px;
 }

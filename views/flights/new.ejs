@@ -3,33 +3,35 @@
 <h2 id="new-flight">ADD A NEW FLIGHT</h2>
 <div id="new-flight-div">
     <form action="/flights" method="POST">
-        <div id="form-top">
-            <label>Airline:
-                <select name="airline">
-                    <option value="Air Canada">Air Canada</option>
-                    <option value="Delta">Delta</option>
-                    <option value="Spirit">Spirit</option>
-                </select>
-            </label>
-            <label>Flight Number:
-                <input type="number" name="flightNo" required>
-            </label>
+        <label class="new-flight-label">Airline:</label>
+        <div id="form-top-left" class="new">
+            <select name="airline">
+                <option value="Air Canada">Air Canada</option>
+                <option value="Delta">Delta</option>
+                <option value="Spirit">Spirit</option>
+            </select>
         </div>
-        <div id="form-bottom">
-            <label>Airport:
-                <select name="airport">
-                    <option value="DEN">DEN</option>
-                    <option value="JFK">JFK</option>
-                    <option value="LGA">LGA</option>
-                    <option value="PHL">PHL</option>
-                    <option value="YYZ" selected>YYZ</option>
-                </select>
-            </label>
-            <label>Departure Date:
-                <input type="datetime-local" name="departs" value="<%= departsDate %>">
-            </label>
+        <label class="new-flight-label">Airport:</label>
+        <div id="form-bottom-left" class="new">
+            <select name="airport">
+                <option value="DEN">DEN</option>
+                <option value="JFK">JFK</option>
+                <option value="LGA">LGA</option>
+                <option value="PHL">PHL</option>
+                <option value="YYZ" selected>YYZ</option>
+            </select>
         </div>
+        <label class="new-flight-label">Flight #:</label>
+        <div id="form-bottom-right" class="new">
+            <input type="number" name="flightNo" required>
+        </div>
+        <label class="new-flight-label">Departs:</label>
+        <div id="form-top-right" class="new">
+            <input type="datetime-local" name="departs" value="<%= departsDate %>">
+        </div>
+        <div id="button-div">
             <button id="new-flight-button" type="submit">Add Flight</button>
+        </div>
     </form>
 </div>
 <p><%= errorMsg %></p> 
