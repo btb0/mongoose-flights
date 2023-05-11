@@ -1,3 +1,5 @@
+/* I plan to clean this CSS up, i just wanted to make sure i met deadline first */
+
 * {
   box-sizing: border-box;
   /* outline: 1px solid red; */
@@ -90,9 +92,6 @@ nav > div {
   box-shadow: rgba(0, 0, 0, 0.20) 0px 5px 15px;
 }
 
-#new-flight-div > form > * {
-}
-
 .new-flight-label {
   grid-column-start: 1;
   margin-right: 45px;
@@ -175,4 +174,63 @@ nav > div {
 
 #flights-index-table tbody > tr > td {
   padding: 5px;
+}
+
+
+/* -=====FLIGHT DETAILS PAGE====== */
+
+#flight-details {
+  margin: 0 auto;
+  height: 30vh;
+  font-size: 18px;
+  width: 40vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+}
+
+#flight-details > div {
+  display: flex;
+  align-items: center;
+  height: 25px;
+  margin: 10px;
+}
+
+#show-h2 {
+  margin-bottom: 20px;
+}
+
+.details.container {
+  grid-column: span 2;
+}
+
+.airport-code, .arrival {
+  padding-bottom: 5px;
+  border-bottom: 1px solid black;
+}
+
+#destinations {
+  margin-top: 20px;
+  grid-column: span 2;
+  height: 25px;
+  justify-self: center;
+}
+
+.detail-name, .detail {
+  justify-self: center;
+}
+
+#destinations-container {
+  margin: 0 auto;
+  display: grid;
+  flex-direction: column;
+  text-align: center;
+  height: fit-content;
+  font-size: 18px;
+  width: 40vw;
+  grid-template-columns: 1fr 1fr;
+}
+
+.airport, .arrival-date {
+  padding-top: 5px;
 }

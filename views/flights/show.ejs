@@ -1,22 +1,30 @@
 <%- include('../partials/header') %>
-
+<h2 id="show-h2">Flight Information:</h2>
 <section id="flight-details">
-    <div>Airline: </div>
-    <div><%= flight.airline %></div>
-    <div>Airport: </div>
-    <div><%= flight.airport %></div>
-    <div>Flight Number: </div>
-    <div><%= flight.flightNo %></div>
-    <div>Departure Date: </div>
-    <div><%= flight.departs.toDateString() %></div>
-    <div>Departure Time: </div>
-    <div><%= flight.departs.toLocaleString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true}) %></div>
-    <div id="destinations">Destinations: </div>
-    <% flight.destinations.forEach(function(d) { %>
-        <div><%= d.airport %></div>
-        <div><%= d.arrival.toLocaleDateString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }) %></div>
-    <% }) %>
+    <div class="detail-name">Airline: </div>
+    <div class="detail"><%= flight.airline %></div>
+
+    <div class="detail-name">Airport: </div>
+    <div class="detail"><%= flight.airport %></div>
+
+    <div class="detail-name">Flight Number: </div>
+    <div class="detail"><%= flight.flightNo %></div>
+
+    <div class="detail-name">Departure Date: </div>
+    <div class="detail"><%= flight.departs.toDateString() %></div>
+
+    <div class="detail-name">Departure Time: </div>
+    <div class="detail"><%= flight.departs.toLocaleString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true}) %></div>
 </section>
+<section id="destinations-container">
+    <div id="destinations">Destinations: </div>
+    <div class="airport-code">Airport:</div>
+    <div class="arrival">Arrival:</div>
+    <% flight.destinations.forEach(function(d) { %>
+        <div class="airport"><%= d.airport %></div>
+        <div class="arrival-date"><%= d.arrival.toLocaleDateString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }) %></div>
+    <% }) %>
+</section>  
 <br>
 <h2>Add Destinations</h2>
 <form id="add-destinations-form" method="POST" 
