@@ -1,26 +1,27 @@
 <%- include('../partials/header') %>
 
-<h2>Flights</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Airline: </th>
-                <th>Airport: </th>
-                <th>Flight # </th>
-                <th>Departs: </th>
-            </tr>
-        </thead>
-        <tbody>
-            <% flights.forEach(function(f) { %>
-            <tr>
-                <td><%= f.airline %></td>
-                <td><%= f.airport %></td>
-                <td><%= f.flightNo %></td>
-                <td><%= f.departs.toLocaleDateString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }) %></td>
-                <td><a href="/flights/<%= f._id %>">Details</a></td>
-            </tr>
-            <% }) %>
-        </tbody>
-    </table>
-
+<h2>FLIGHTS</h2>
+    <div id="flights-index-container">
+        <table id="flights-index-table">
+            <thead>
+                <tr>
+                    <th>Airline: </th>
+                    <th>Airport: </th>
+                    <th>Flight # </th>
+                    <th>Departs: </th>
+                </tr>
+            </thead>
+            <tbody>
+                <% flights.forEach(function(f) { %>
+                <tr>
+                    <td><%= f.airline %></td>
+                    <td><%= f.airport %></td>
+                    <td><%= f.flightNo %></td>
+                    <td><%= f.departs.toLocaleDateString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }) %></td>
+                    <td><a href="/flights/<%= f._id %>">Details</a></td>
+                </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
 <%- include('../partials/footer') %>

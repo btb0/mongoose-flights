@@ -6,11 +6,17 @@
 
 body {
   height: 100vh;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  text-align: center;
   font-family: 'Source Sans Pro', sans-serif;
 }
 
+h2 {
+  text-align: center;
+  margin: 45px;
+  letter-spacing: 15px;
+  font-size: 38px;
+}
+
+/* -======HEADER======- */
 header {
   display: flex;
   justify-content: flex-start;
@@ -28,9 +34,10 @@ header #mongoose-header-title {
 }
 
 a {
-  color: black;
-  text-decoration: none;
+  color: rgb(11, 153, 255);
 }
+
+/* -======NAV BAR======- */
 
 nav {
   display: flex;
@@ -44,6 +51,20 @@ nav > div {
   margin-left: 2vmin;
 }
 
+.link-decor {
+    color: black;
+    text-decoration: none;
+}
+
+/* -======NEW FLIGHT======- */
+
+#new-flight {
+  text-align: center;
+  margin: 45px;
+  letter-spacing: 10px;
+  font-size: 38px;
+}
+
 #add-destinations-form {
   display: flex;
   flex-direction: column;
@@ -51,31 +72,68 @@ nav > div {
   align-items: center;
 }
 
-#new-flight-form {
+#new-flight-div {
+  margin: 10vmin auto;
+  height: 400px;
+  width: 1005px;
   display: flex;
-  height: 60vh;
   justify-content: center;
   align-items: center;
 }
 
-#new-flight-form > form {
-  padding: 10vmin 35vmin;
+#new-flight-div > form {
+  height: 400px;
+  width: 1005px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.20) 0px 5px 15px;
+}
+
+#new-flight-div input, #new-flight-div select {
+  height: 35px;
+}
+
+#form-top, #form-bottom {
+  font-size: 24px;
+  margin: 65px;
+}
+
+#form-top > *{
+  margin: 75px;
+}
+
+#new-flight-button {
+  padding: 10px;
+  border-radius: 10px;
+  margin: auto 30px 20px auto;
+}
+
+/* -======ALL FLIGHTS======- */
+
+#flights-index-container {
+  height: fit-content;
+  width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#flights-index-table {
+  /* height: 500px; */
+  height: fit-content;
+  width: 1000px;
+  padding: 45px;
   border-radius: 15px;
   box-shadow: rgba(0, 0, 0, 0.20) 0px 5px 15px;
 }
 
-h2 {
-  font-size: 3vmin;
-  margin-top: 10vmin;
-}
-
-#new-flight-form > form > div {
-  outline: 1px solid red;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-#new-flight-form > form > div > button {
-  align-self: flex-end;
+#flights-index-table > thead > tr > th {
+  border-bottom: 1px solid black;
+  padding: 15px;
+  padding-top: 0;
 }

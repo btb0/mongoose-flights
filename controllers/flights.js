@@ -44,7 +44,6 @@ async function create(req, res) {
 async function show(req, res) {
     const flight = await Flight.findById(req.params.id);
     const tickets = await Ticket.find({flight: flight._id});
-    console.log(tickets)
     const destinationAirports = flight.destinations.map((destination) => destination.airport);
     const filteredAirports = Airports.filter((airport) => !destinationAirports.includes(airport));
     // // sorts destinations by arrival
