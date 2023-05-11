@@ -41,28 +41,13 @@ async function create(req, res) {
     }
 }
 
-// async function show(req, res) {
-//     const flight = await Flight.findById(req.params.id);
-//     const destinationAirports = flight.destinations.map((destination) => destination.airport);
-//     const filteredAirports = Airports.filter((airport) => !destinationAirports.includes(airport));
-    // sorts destinations by arrival
-    // flight.destinations.sort((a, b) => a.arrival - b.arrival);
-    // try {
-    //     await Flight.findById(req.params.id, async function(err, flight) {
-    //         await Ticket.find({flight: flight._id}, function(err, tickets) {
-
-    //         });
-    //     });
-    // } catch (err) {
-    // }
-    // res.render('flights/show', { flight, Airports: filteredAirports })
-// }
-
-function show(req, res) {
-    Flight.findById(req.params.id, function(err, flight) {
-        Ticket.find({flight: flight._id}, function(err, tickets) {
-          // Now you can pass both the flight and tickets in the res.render call
-          res.render('flights/show', { flight, tickets });
-        });
-    });
+async function show(req, res) {
+    const flight = await Flight.findById(req.params.id);
+    const tickets = await Ticket.find({flight: flight._id});
+    console.log(tickets)
+    const destinationAirports = flight.destinations.map((destination) => destination.airport);
+    const filteredAirports = Airports.filter((airport) => !destinationAirports.includes(airport));
+    // // sorts destinations by arrival
+    flight.destinations.sort((a, b) => a.arrival - b.arrival);
+    res.render('flights/show', { flight, tickets, Airports: filteredAirports });
 }

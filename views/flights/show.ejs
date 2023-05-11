@@ -34,8 +34,11 @@
     <button type="submit">Add Destination</button>
 </form>
 <br>
-<h2>Tickets</h2>
-<div></div>
-<a href="/flights/<%= flight._id %>/tickets">New Ticket</a>
+<div id="tickets">Tickets: </div>
+    <% tickets.forEach(function(ticket) { %>
+        <div><%= ticket.seat %></div>
+        <div><%= ticket.price %></div>
+    <% }) %>
+<a href="/flights/<%= flight._id %>/tickets/new">New Ticket</a>
 
 <%- include('../partials/footer') %>
