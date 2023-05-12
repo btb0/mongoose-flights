@@ -18,6 +18,22 @@ h2 {
   font-size: 38px;
 }
 
+#home {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1 {
+  letter-spacing: 10px;
+}
+
+img {
+  height: 450px;
+}
+
 /* -======HEADER======- */
 header {
   display: flex;
@@ -61,13 +77,6 @@ nav > div {
   margin: 45px;
   letter-spacing: 10px;
   font-size: 38px;
-}
-
-#add-destinations-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 #new-flight-div {
@@ -130,8 +139,9 @@ nav > div {
 
 /* -======ALL FLIGHTS======- */
 
-#details-link {
+.details-link {
   color: Black;
+  background-color: white;
   font-size: 14px;
   border: 1px solid black;
   border-radius: 5px;
@@ -139,7 +149,7 @@ nav > div {
   text-decoration: none;
 }
 
-#details-link:hover {
+.details-link:hover {
   color: white;
   background-color: black;
   border: 1px solid black;
@@ -181,7 +191,7 @@ nav > div {
 
 #flight-details {
   margin: 0 auto;
-  height: 30vh;
+  height: 25vh;
   font-size: 18px;
   width: 40vw;
   display: grid;
@@ -198,6 +208,7 @@ nav > div {
 
 #show-h2 {
   margin-bottom: 20px;
+  grid-column: span 2;
 }
 
 .details.container {
@@ -231,6 +242,56 @@ nav > div {
   grid-template-columns: 1fr 1fr;
 }
 
+#tickets-container{
+  margin: 0 auto;
+  width: 40vw;
+  font-size: 18px;
+}
+
+#add-destinations-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#add-destinations-form > *{
+  margin: 0 15px;
+}
+
+#add-destination-container {
+  text-align: center;
+}
+
+#add-destination-container > h3 {
+  margin: 15px;
+  letter-spacing: 1.5px;
+}
+
+#tickets-container{
+  text-align: center;
+}
+
 .airport, .arrival-date {
   padding-top: 5px;
+}
+
+#tickets {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#tickets > thead > tr > th {
+  color: rgba(0, 0, 0, .5);
+  width: 105px;
+}
+
+#tickets > tbody > tr > td {
+  width: 105px;
+}
+
+.tickets-spacing {
+  letter-spacing: 1.5px;;
+  margin-top: 15px;
 }
